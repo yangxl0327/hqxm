@@ -30,7 +30,7 @@ public class HqxmApplication {
         return new TomcatServletWebServerFactory() {
             @Override
             protected void postProcessContext(Context context) {
-                ((StandardJarScanner) context.getJarScanner()).setScanManifest(false);
+                 ((StandardJarScanner) context.getJarScanner()).setScanManifest(false);
             }
         };
     }
