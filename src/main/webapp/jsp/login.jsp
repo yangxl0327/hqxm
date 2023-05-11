@@ -34,7 +34,7 @@
         }
     </script>
 </head>
-<body style=" background: url(../img/微信图片_20190603161551.jpg); background-size: 100%;">
+<body style=" background: url(../img/微信图片_20190603161641.jpg); background-size: 100%;">
 
 
 <div class="modal-dialog  " style="margin-top: 10%;">

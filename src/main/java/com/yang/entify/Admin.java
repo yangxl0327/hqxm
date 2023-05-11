@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import javax.management.relation.Role;
+
 import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.List;

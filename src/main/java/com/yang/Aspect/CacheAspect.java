@@ -10,7 +10,7 @@ public class CacheAspect {
     private StringRedisTemplate stringRedisTemplate;
     @Around("@annotation(com.yang.Annotation.AddCache)")
     public  Object addCache(ProceedingJoinPoint proceedingJoinPoint){
-        //Key
+        //Key   类名
         String key1 = proceedingJoinPoint.getTarget().getClass().getName();
         //key
         String key = proceedingJoinPoint.getSignature().getName();

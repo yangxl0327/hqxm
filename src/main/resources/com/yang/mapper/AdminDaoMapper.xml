@@ -1,21 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yang.dao.AdminDao">
-     <!-- <resultMap id=" my1" type="Admin">
-           <id column="aid" property="id"></id>
-          <result column="name" property="name"></result>
-          <result column="password" property="password"></result>
+     <resultMap id="info" type="Admin">
+          <id property="id" column="id"></id>
+          <result property="name" column="name"></result>
+          <result property="password" column="password"></result>
           <collection property="roles" ofType="Role">
-              <id column="rid" property="id"></id>
-              <result column="role_name" property="role_name"></result>
-                 <collection property="resources" ofType="Resources">
-                     <id column="reid" property="id"></id>
-                     <result column="resource_name" property="resource_name"></result>
-                 </collection>
+               <id property="id" column="rid"></id>
+               <result property="role_name" column="role_name"></result>
+               <collection property="resources" ofType="Resources">
+               <id property="id" column="reid"></id>
+               <result property="resource_name" column="resource_name"></result>
+               </collection>
           </collection>
-      </resultMap>
-     <select id="selectOneByName" resultMap="my1">
+     </resultMap>
 
-     </select>-->
+     <select id="selectOneByName" resultMap="info">
+
+      SELECT a.id id,a.name name,a.password password,
+             c.id rid,c.role_name role_name,
+             e.id reid,e.resource_name resource_name
+          FROM admin a
+          LEFT JOIN admin_role b ON a.id=b.a_id
+          LEFT JOIN role c on b.role_id=c.id
+          LEFT JOIN role_resource d ON c.id=d.role_id
+          LEFT JOIN resources e on d.resource_id=e.id
+          WHERE a.name=#{name}
+
+     </select>
 
 </mapper>
