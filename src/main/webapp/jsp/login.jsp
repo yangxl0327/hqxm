@@ -34,7 +34,7 @@
         }
     </script>
 </head>
-<body style=" background: url(../img/微信图片_20190603161641.jpg); background-size: 100%;">
+<body style=" background: url(../img/1512442189628249.jpg); background-size: 100%;">
 
 
 <div class="modal-dialog  " style="margin-top: 10%;">
@@ -53,7 +53,10 @@
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" placeholder="验证码" autocomplete="off" name="code">
-                <img src="${pageContext.request.contextPath}/img/微信图片_20190603161551.jpg" id="img1" onclick="changeImage()">
+<%--
+                <img src="${pageContext.request.contextPath}/img/微信图片_20190603161641.jpg" id="img1" onclick="changeImage()">
+--%>
+                <img src="${pageContext.request.contextPath}/img/微信图片_20190603161641.jpg" id="img1" onclick="changeImage()">
                 <a class="btn btn-default" onclick="changeImage()">换一张</a>
             </div>
             <span id="msg" style="color: red"></span>

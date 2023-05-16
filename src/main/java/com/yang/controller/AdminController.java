@@ -40,15 +40,15 @@ public class AdminController {
         Subject subject = SecurityUtils.getSubject();
         //登录
         if(!code.equals(securityCode)){
-             return  "验证码错误！";
+             return  "验证码错误！请重试";
         }else{
             try{
                 subject.login(usernamePasswordToken);
                 return null;
             }catch (UnknownAccountException u){
-                return "用户名错误！";
+                return "用户名错误！请重试";
             }catch (IncorrectCredentialsException e){
-                return "密码错误！";
+                return "密码错误！请重试";
             }
         }
     }
@@ -69,8 +69,15 @@ public class AdminController {
         ImageIO.write(createImage,"png",outputStream);
         outputStream.close();
     }
+    @RequestMapping("logout")
+    public  String logout(HttpServletRequest request){
+        request.getSession().removeAttribute("admin");
+        //获取 主体方法
+        Subject subject = SecurityUtils.getSubject();
+        subject.logout();
+        return "jsp/login";
 
-
+    }
 
 
 

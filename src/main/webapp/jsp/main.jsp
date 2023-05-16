@@ -1,4 +1,5 @@
 <%@page isELIgnored="false" contentType="text/html; UTF-8" pageEncoding="UTF-8" %>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -44,8 +45,9 @@
         <div>
             <!--向右对齐-->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="">欢迎:Rxx</a></li>
-                <li><a href="">退出登录</a></li>
+
+                <li><a href="">欢迎:<shiro:principal></shiro:principal></a></li>
+                <li><a href="${pageContext.request.contextPath}/admin/logout">退出登录</a></li>
             </ul>
         </div>
     </div>
@@ -65,11 +67,14 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse">
                         <div class="panel-body">
+                            <%--角色 限权  查看--%>
+                            <shiro:hasRole name="admin">
                             <ul class="nav nav-pills nav-stacked">
                                 <li><a href="javascript:$('#centerLay').load('./user.jsp');">用户信息管理</a></li>
                                 <li><a  href="javascript:$('#centerLay').load('./echarts.jsp');">用户注册趋势</a></li>
                                 <li><a href="javascript:$('#centerLay').load('./map.jsp');">用户注册分布</a></li>
                             </ul>
+                            </shiro:hasRole>
                         </div>
                     </div>
                 </div>
