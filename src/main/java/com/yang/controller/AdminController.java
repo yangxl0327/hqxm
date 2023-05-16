@@ -40,7 +40,7 @@ public class AdminController {
         Subject subject = SecurityUtils.getSubject();
         //登录
         if(!code.equals(securityCode)){
-             return  "验证码错误！请重试";
+             return  "验证码错误！请重试！！";
         }else{
             try{
                 subject.login(usernamePasswordToken);
@@ -48,7 +48,7 @@ public class AdminController {
             }catch (UnknownAccountException u){
                 return "用户名错误！请重试";
             }catch (IncorrectCredentialsException e){
-                return "密码错误！请重试";
+                return "密码错误！请重试！！！";
             }
         }
     }
